@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Покупка билета</title>
+    <style>
+    /* Основные стили */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+        background-color: #ffffff;
+    }
+    
+    /* Шапка */
+    .header {
+        background: #3950f9;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .logo {
+        width: 70px;
+        height: 70px;
+        background-image: url('https://cdn-icons-png.flaticon.com/128/5371/5371459.png');
+        background-size: cover;
+    }
+    .logo:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+    .logo:active {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .search-bar {
+        padding: 8px 20px;
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        width: 200px;
+    }
+    .search-bar:hover {
+        width: 250px;
+        transition: 0.3s;
+    }
+    
+    /* Навигация */
+    .nav {
+        display: flex;
+        gap: 10px;
+    }
+    .profile, .cart, .tickets {
+        width: 70px;
+        height: 70px;
+        background-size: cover;
+        transition: transform 0.3s;
+    }
+    .profile {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/7168/7168507.png');
+        transform: scale(0.8);
+    }
+    .cart {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/711/711897.png');
+        transform: scale(0.6);
+    }
+    .tickets {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/320/320375.png');
+        transform: scale(0.6);
+    }
+    .profile:hover {
+        transform: scale(1);
+        transition: 0.3s;
+    }
+    .profile:active {
+        transform: scale(0.6);
+        transition: 0.2s;
+    }
+    .cart:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .cart:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    .tickets:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .tickets:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    
+    /* Основной контент */
+    .main-content {
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .above {
+        margin: 10px 0;
+    }
+    .above h1 {
+        font-family: Fantasy;
+        letter-spacing: 8px;
+        font-size: 40px;
+        color: #090D29;
+        margin: 0;
+    }
+    .line {
+        height: 10px;
+        width: 110%;
+        background: #3950f9;
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+    
+    /* Блок с информацией о мероприятии */
+    .event-details {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+    .event-info {
+        flex: 1;
+    }
+    .event-poster {
+        flex: 1;
+    }
+    .event-type {
+        font-size: 25px;
+        height: 40px;
+        color: #ffffff;
+        font-weight: bold;
+        background: #3950f9;
+        border-radius: 15px;
+        padding-left: 15px;
+        padding-top: 10px;
+    }
+    .event-annotation {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    .event-age {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #3950f9;
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+    .event-poster-img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    .event-purchase {
+    	display: flex;  
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .event-price {
+    	color: 090D29;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .event-date {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #555;
+    }
+    .buy-btn {
+        background-color: #3950f9;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 18px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+    .buy-btn:hover {
+        background-color: #293dc7;
+        transition: 0.3s;
+    }
+    .cart-btn {
+        background-color: #ffffff;
+        color: #3950f9;
+        border: 2px solid #3950f9;
+        padding: 12px 30px;
+        font-size: 18px;
+        border-radius: 15px; 
+    }
+    .cart-btn:hover {
+        background-color: #f0f0f0;
+        transition: 0.3s;
+    }
+    
+    /* Подвал */
+    .footer {
+        background-color: #3950f9;
+        height: 50px;
+        color: #090D29;
+        padding: 35px 0 0 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="search-container">
+            <a href="main page">
+                <div class="logo"></div>
+            </a>
+            <input type="text" class="search-bar" placeholder="Всё и все здесь...">
+        </div>
+        <nav class="nav">
+            <div class="tickets"></div>
+            <div class="cart"></div>
+            <div class="profile"></div>
+        </nav>
+    </header>
+    
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="above">
+            <h1>Мероприятие</h1>
+        </div>
+        <div class="line"></div>
+        
+        <!-- Блок с информацией о мероприятии -->
+        <div class="event-details">
+            <div class="event-info">
+                <div class="event-type">Концерт</div>
+                <div class="event-annotation">
+                    <p>Это захватывающее мероприятие перенесет вас в мир музыки и искусства. 
+                    Известные исполнители представят свои лучшие произведения в уникальной аранжировке. 
+                    Не пропустите возможность погрузиться в атмосферу настоящего праздника музыки.</p>
+                    <p>Продолжительность: 2 часа 30 минут с антрактом.</p>
+                </div>
+                <div class="event-age">16+</div>
+            </div>
+            
+            <div class="event-poster">
+                <img src="https://pyxis.nymag.com/v1/imgs/ce7/bdf/2627ce670407a673afc32639dcf3b9fe53-London-hm-event-Charli-xcx-07.2x.rsocial.w600.jpg" 
+                     alt="Афиша мероприятия" class="event-poster-img">
+                
+                <div class="event-purchase">
+                    <div class="event-price">1500 руб.</div>
+                    <div class="event-date">25 мая 2024, 19:00</div>
+                    <button class="buy-btn">Бронировать</button>
+                    <button class="cart-btn">В корзину</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Подвал -->
+    <footer class="footer">
+        © 2025, OOO "DIVE IN". Все права защищены.
+    </footer>
+</body>
+</html>

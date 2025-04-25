@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Курсовая работа</title>
+    <style>
+    /* Основные стили */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+        background-color: #ffffff;
+    }
+    
+    /* Шапка */
+    .header {
+        background: #3950f9;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .logo {
+        width: 70px;
+        height: 70px;
+        background-image: url('https://cdn-icons-png.flaticon.com/128/5371/5371459.png');
+        background-size: cover;
+    }
+    .logo:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+    .logo:active {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .search-bar {
+        padding: 8px 20px;
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        width: 200px;
+    }
+    .search-bar:hover {
+        width: 250px;
+        transition: 0.3s;
+    }
+    
+    /* Навигация */
+    .nav {
+        display: flex;
+        gap: 10px;
+    }
+    .profile, .cart, .tickets {
+        width: 70px;
+        height: 70px;
+        background-size: cover;
+        transition: transform 0.3s;
+    }
+    .profile {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/7168/7168507.png');
+        transform: scale(0.8);
+    }
+    .cart {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/711/711897.png');
+        transform: scale(0.6);
+    }
+    .tickets {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/320/320375.png');
+        transform: scale(0.6);
+    }
+    .profile:hover {
+        transform: scale(1);
+        transition: 0.3s;
+    }
+    .profile:active {
+        transform: scale(0.6);
+        transition: 0.2s;
+    }
+    .cart:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .cart:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    .tickets:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .tickets:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    
+    /* Основной контент */
+    .main-content {
+        padding-left: 20px;
+    }
+    .above {
+        margin: 10px 0;
+    }
+    .above h1 {
+        font-family: Fantasy;
+        letter-spacing: 8px;
+        font-size: 50px;
+        color: #090D29;
+        margin: 0;
+    }
+    .line {
+        height: 20px;
+        width: 110%;
+        background: #3950f9;
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+    
+    /* Блоки мероприятий */
+    .carousel-section {
+        margin-bottom: 30px;
+    }
+    .section-title {
+        font-size: 30px;
+        color: #090D29;
+        margin-bottom: 15px;
+        background-color: #3950f9;
+        width: 290px;
+        border-radius: 15px;
+        padding-left: 10px;
+    }
+    .carousel-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 20px;
+    }
+    .carousel-track {
+        display: inline-flex;
+        gap: 20px;
+    }
+    .event-card {
+        width: 300px;
+        height: 400px;
+        background: #45458c;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        white-space: normal;
+    }
+    .event-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: height 0.3s;
+    }
+    .event-info {
+        padding: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+    }
+    .event-card:hover .event-info {
+        transform: translateY(0);
+    }
+    .event-card:hover .event-image {
+        height: 293px;
+    }
+    .event-title {
+        font-size: 18px;
+        margin: 0 0 10px;
+        color: #fcfcfd;
+    }
+    .event-date, .event-price {
+        font-size: 15px;
+        color: #d0d0e2;
+        margin: 6px 0;
+    }
+    
+    /* Скрыть scrollbar */
+    .carousel-container::-webkit-scrollbar {
+        height: 8px;
+    }
+    .carousel-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    .carousel-container::-webkit-scrollbar-thumb {
+        background: #3950f9;
+        border-radius: 10px;
+    }
+    .carousel-container::-webkit-scrollbar-thumb:hover {
+        background: #2a3ac7;
+    }
+    
+    /* Подвал */
+    .footer {
+        background-color: #3950f9;
+        height: 50px;
+        color: #090D29;
+        padding: 35px 0 0 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="search-container">
+            <a href="main page">
+                <div class="logo"></div>
+            </a>
+            <input type="text" class="search-bar" placeholder="Всё и все здесь...">
+        </div>
+        <nav class="nav">
+            <div class="tickets"></div>
+            <div class="cart"></div>
+            <div class="profile"></div>
+        </nav>
+    </header>
+    
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="above">
+            <h1>DIVE IN</h1>
+        </div>
+        <div class="line"></div>
+        
+        <!-- Блок "Сейчас в топе" -->
+        <section class="carousel-section">
+            <h2 class="section-title">Сейчас в топе</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Карточка 1 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://kudapoiti.by/storage/events_images/7mUcgvafk.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 1</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                    <!-- Карточка 2 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/9e/9e02341776e9bcf449cdb1a234bb86f2.png" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 2</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                    <!-- Карточка 3 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/5b/5ba74ea35dbf426c6d815f649ba45945.png" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 3</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                    <!-- Карточка 4 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/4c/4c08e7f22ced8614e640572d3c953004.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 4</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                    
+                    <!-- Карточка 5 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/3d/3d1fff8096d171a2289264c4c4329d07.png" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 5</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                    
+                    <!-- Карточка 6 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/55/55761a01f2963fd967a2165c5b724c9f.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 6</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+
+                    <!-- Карточка 7 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/f3/f3e9119b9a292cc47ffe5955282b177e.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 7</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Блок "Для Вас" -->
+        <section class="carousel-section">
+            <h2 class="section-title">Для Вас</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Карточка 1 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/13/138bfe85a4dae0df8fdfe11f25b6c6ed.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 1</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+
+                    <!-- Карточка 2 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/81/81d9c0112829cc3e103eab1e00e49e3f.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 2</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+
+                    <!-- Карточка 3 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/38/38572089b268eb41e2248c3299467a77.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 3</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+
+                    <!-- Карточка 4 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/37/379850d1e4c269cfd13a1f3d8a9fa13d.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 4</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                    
+                    <!-- Карточка 5 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/a4/a46c6dbdddb469535097305e596ac12a.png" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 5</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+                    
+                    <!-- Карточка 6 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/95/95da0ffc90ae48022d46e26e691fb545.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 6</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+
+                    <!-- Карточка 7 -->
+                    <a href="buy_ticket">
+                    <div class="event-card">
+                        <img src="https://cdn.kassir.ru/spb/poster/ce/ce0ad4a89c040709cc419e996475f73b.jpg" alt="мероприятие" class="event-image">
+                        <div class="event-info">
+                            <h3 class="event-title">Мероприятие 7</h3>
+                            <p class="event-date">Дата: </p>
+                            <p class="event-price">Цена:</p>
+                        </div>
+                    </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Подвал -->
+    <footer class="footer">
+        © 2025, OOO "DIVE IN". Все права защищены.
+    </footer>
+</body>
+</html>

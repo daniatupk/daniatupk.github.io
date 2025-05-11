@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+    <style>
+    /* Основные стили */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+        background-color: #ffffff;
+    }
+    
+    /* Шапка */
+    .header {
+        background: #3950f9;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .logo {
+        width: 70px;
+        height: 70px;
+        background-image: url('https://cdn-icons-png.flaticon.com/128/5371/5371459.png');
+        background-size: cover;
+    }
+    .logo:hover {
+        transform: scale(1.2);
+        transition: 0.3s;
+    }
+    .logo:active {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .search-bar {
+        padding: 8px 20px;
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        width: 200px;
+    }
+    .search-bar:hover {
+        width: 250px;
+        transition: 0.3s;
+    }
+    .nav {
+        display: flex;
+        gap: 10px;
+    }
+    .profile, .cart, .tickets {
+        width: 70px;
+        height: 70px;
+        background-size: cover;
+        transition: transform 0.3s;
+    }
+    .profile {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/7168/7168507.png');
+        transform: scale(0.8);
+    }
+    .cart {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/711/711897.png');
+        transform: scale(0.6);
+    }
+    .tickets {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/320/320375.png');
+        transform: scale(0.6);
+    }
+    .profile:hover {
+        transform: scale(1);
+        transition: 0.3s;
+    }
+    .profile:active {
+        transform: scale(0.6);
+        transition: 0.2s;
+    }
+    .cart:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .cart:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    .tickets:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .tickets:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    
+    /* Основной контент */
+    .main-content {
+        padding: 20px;
+        display: flex;
+        gap: 30px;
+    }
+    
+    /* Боковая панель профиля */
+    .profile-sidebar {
+        width: 150px;
+        height: 797px;
+        background: #f0f0f0;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    .user-info {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .user-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #3950f9;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .user-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #090D29;
+        margin-bottom: 5px;
+    }
+    .user-status {
+        display: inline-block;
+        background: #ffec8b;
+        color: #090D29;
+        padding: 3px 10px;
+        border-radius: 15px;
+        font-size: 14px;
+    }
+    .profile-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .profile-menu li {
+        margin-bottom: 10px;
+    }
+    .profile-menu a {
+        display: block;
+        padding: 10px 15px;
+        color: #090D29;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: all 0.3s;
+    }
+    .profile-menu a:hover{
+        background: #3950f9;
+        color: white;
+    }
+    
+    /* Основное содержимое профиля */
+    .profile-content {
+        flex: 1;
+    }
+    .profile-section {
+        background: #f0f0f0;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .section-title {
+        font-size: 24px;
+        color: #090D29;
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #3950f9;
+    }
+    /* Информация о покупателе */
+    .info-grid {
+        display: grid;
+        gap: 15px;
+    }
+    .info-item {
+        margin-bottom: 15px;
+    }
+    .info-label {
+        display: block;
+        color: #45458c;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    .info-value {
+        font-weight: bold;
+        color: #090D29;
+    }
+    .edit-btn {
+        background: #3950f9;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 15px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .edit-btn:hover {
+        background: #2a3ac7;
+    }
+    
+    /* Блок скидки и бонусов */
+    .discount-badge {
+        background: linear-gradient(135deg, #3950f9, #ff2b0f);
+        color: white;
+        padding: 15px;
+        border-radius: 15px;
+        text-align: center;
+    }
+    .discount-value {
+        font-size: 50px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .bonus-points {
+        display: flex;
+        justify-content: space-between;
+        background: white;
+        padding: 10px 10px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+    .bonus-label {
+        color: #090D29;
+    }
+    .bonus-value {
+        font-weight: bold;
+        color: #3950f9;
+    }
+    
+    /* Подвал */
+    .footer {
+        background-color: #3950f9;
+        height: 50px;
+        color: #090D29;
+        padding: 35px 0 0 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="search-container">
+            <a href="index.html">
+                <div class="logo"></div>
+            </a>
+            <input type="text" class="search-bar" placeholder="Всё и все здесь...">
+        </div>
+        <nav class="nav">
+            <a href="tickets.html"><div class="tickets"></div></a>
+            <a href="busket.html"><div class="cart"></div></a>
+            <a href="profile.html"><div class="profile"></div></a>
+        </nav>
+    </header>
+    
+    <!-- Основной контент -->
+    <main class="main-content">
+        
+        <div class="profile-sidebar">
+            <div class="user-info">
+                <div class="user-avatar">ИИ</div>
+                <div class="user-name">Иван Иванов</div>
+                <div class="user-status">Gold статус</div>
+            </div>
+            
+            <ul class="profile-menu">
+                <li><a href="busket.html">Корзина</a></li>
+                <li><a href="tickets.html">Мои билеты</a></li>
+                <li><a href="#">Избранное</a></li>
+                <li><a href="#">Настройки</a></li>
+                <li><a href="#">Выйти</a></li>
+            </ul>
+        </div>
+        
+        <div class="profile-content">
+            <!-- Информация о покупателе -->
+            <div class="profile-section">
+                <h2 class="section-title">Личная информация</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">ФИО</span>
+                        <span class="info-value">Иван Иванович Иванов</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Дата рождения</span>
+                        <span class="info-value">15.03.1985</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">ivanov@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Телефон</span>
+                        <span class="info-value">+7 (912) 345-67-89</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Город</span>
+                        <span class="info-value">Москва</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Дата регистрации</span>
+                        <span class="info-value">12.05.2022</span>
+                    </div>
+                </div>
+                
+                <button class="edit-btn">Редактировать профиль</button>
+            </div>
+
+            <!-- Блок скидки и бонусов -->
+            <div class="profile-section">
+                <h2 class="section-title">Моя скидка и бонусы</h2>
+                
+                <div class="discount-badge">
+                    <div>Персональная скидка</div>
+                    <div class="discount-value">10%</div>
+                    
+                    <div class="bonus-points">
+                        <span class="bonus-label">Накоплено бонусов:</span>
+                        <span class="bonus-value">1 500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Подвал -->
+    <footer class="footer">
+        © 2025, OOO "DIVE IN". Все права защищены.
+    </footer>
+</body>
+</html>

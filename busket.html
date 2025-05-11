@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <style>
+    /* Основные стили */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
+        background-color: #ffffff;
+    }
+    
+    /* Шапка */
+    .header {
+        background: #3950f9;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .logo {
+        width: 70px;
+        height: 70px;
+        background-image: url('https://cdn-icons-png.flaticon.com/128/5371/5371459.png');
+        background-size: cover;
+    }
+    .logo:hover {
+        transform: scale(1.2);
+        transition: 0.3s;
+    }
+    .logo:active {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .search-bar {
+        padding: 8px 20px;
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        width: 200px;
+    }
+    .search-bar:hover {
+        width: 250px;
+        transition: 0.3s;
+    }
+    .nav {
+        display: flex;
+        gap: 10px;
+    }
+    .profile, .cart, .tickets {
+        width: 70px;
+        height: 70px;
+        background-size: cover;
+        transition: transform 0.3s;
+    }
+    .profile {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/7168/7168507.png');
+        transform: scale(0.8);
+    }
+    .cart {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/711/711897.png');
+        transform: scale(0.6);
+    }
+    .tickets {
+        background-image: url('https://cdn-icons-png.flaticon.com/128/320/320375.png');
+        transform: scale(0.6);
+    }
+    .profile:hover {
+        transform: scale(1);
+        transition: 0.3s;
+    }
+    .profile:active {
+        transform: scale(0.6);
+        transition: 0.2s;
+    }
+    .cart:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .cart:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    .tickets:hover {
+        transform: scale(0.8);
+        transition: 0.3s;
+    }
+    .tickets:active {
+        transform: scale(0.4);
+        transition: 0.2s;
+    }
+    
+    /* Основной контент */
+    .main-content {
+        padding-left: 20px;
+    }   
+    /* Стили для корзины */
+    .cart-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .cart-title {
+        font-size: 30px;
+        color: #090D29;
+        margin-bottom: 15px;
+        background-color: #3950f9;
+        width: 300px;
+        border-radius: 15px;
+        padding-left: 10px;
+    }
+    /* Пустая корзина */
+    .empty-cart {
+        text-align: center;
+        padding: 50px;
+    }
+    .empty-cart-icon {
+        font-size: 100px;
+        color: #3950f9;
+        margin-bottom: 20px;
+    }
+    .empty-cart-message {
+        font-size: 24px;
+        color: #090D29;
+        margin-bottom: 20px;
+    }
+    .continue-shopping {
+        background: #3950f9;
+        color: #090D29;
+        border: none;
+        border-radius: 15px;
+        padding: 12px 25px;
+        font-size: 18px;  
+        font-weight: bold;
+    }
+    .continue-shopping:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+    
+    /* Подвал*/
+    .footer {
+        background-color: #3950f9;
+        height: 50px;
+        color: #090D29;
+        padding: 35px 0 0 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- Шапка-->
+    <header class="header">
+        <div class="search-container">
+            <a href="index.html">
+                <div class="logo"></div>
+            </a>
+            <input type="text" class="search-bar" placeholder="Всё и все здесь...">
+        </div>
+        <nav class="nav">
+            <a href="tickets.html"><div class="tickets"></div></a>
+            <a href="busket.html"><div class="cart"></div></a>
+            <a href="profile.html"><div class="profile"></div></a>
+        </nav>
+    </header>
+    
+    <!-- Основной контент -->
+    <main class="main-content">        
+        <div class="cart-container">
+            <h2 class="cart-title">Ваша корзина</h2>
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/711/711897.png">
+                </div>
+                <div class="empty-cart-message">Ваша корзина пуста</div>
+                <a href="index.html"><button class="continue-shopping">Продолжить покупки</button></a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Подвал -->
+    <footer class="footer">
+        © 2025, OOO "DIVE IN". Все права защищены.
+    </footer>
+</body>
+</html>

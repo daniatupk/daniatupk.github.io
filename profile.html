@@ -12,7 +12,12 @@
         font-family: Arial;
         background-color: #ffffff;
     }
-    
+
+    body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    }
     /* Шапка */
     .header {
         background: #3950f9;
@@ -101,9 +106,10 @@
     
     /* Основной контент */
     .main-content {
-        padding: 20px;
-        display: flex;
-        gap: 30px;
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+    flex: 1 0 auto; 
     }
     
     /* Боковая панель профиля */
@@ -247,13 +253,14 @@
     
     /* Подвал */
     .footer {
-        background-color: #3950f9;
-        height: 50px;
-        color: #090D29;
-        padding: 35px 0 0 15px;
-        margin-top: 20px;
-        text-align: center;
-    }
+    background-color: #3950f9;
+    height: 50px;
+    color: #090D29;
+    padding: 35px 0 0 15px;
+    margin-top: auto; /* Это прижмет футер к низу */
+    text-align: center;
+    flex-shrink: 0; /* Не позволит футеру сжиматься */
+}
     </style>
 </head>
 <body>
